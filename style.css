@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.image-list {
+    display: flex;
+}
+
+.gallery {
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+}
+
+.slider {
+    height: 500px;
+    border: 2px solid white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-size: cover;
+}
+
+.image-list {
+    position: absolute;
+    left: 0;
+    transition: .3s;
+}
+
+.image-list li {
+    width: 150px;
+    height: 100px;
+    background-size: cover;
+    list-style-type: none;
+    flex-shrink: 0;
+    border: 2px solid white;
+    outline: 2px solid white;
+    outline-offset: -3px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.active {
+    opacity: 1 !important;
+}
+
+.list {
+    border: 1px solid white;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    height: 100px;
+}
+
+.LTArrow, .RTArrow, .RBArrow, .LBArrow {
+    color: white;
+    opacity: .5;
+    text-shadow: 0px 0px 10px black;
+    cursor: pointer;
+    position: absolute;
+}
+
+.LTArrow {
+    left: 10px;
+    top: 40%;
+    font-size: 50px;
+    transform: rotate(180deg);
+}
+.RTArrow {
+    right: 10px;
+    top: 39%;
+    font-size: 50px;
+}
+
+.LTArrow:hover, .RTArrow:hover, .RBArrow:hover, .LBArrow:hover {
+    opacity: 1;
+}
+
+.RBArrow {
+    top: 31.5px;
+    right: 10px;
+    font-size: 25px
+}
+
+.LBArrow {
+    top: 35px;
+    left: 10px;
+    font-size: 25px;
+    transform: rotate(180deg);
+}
