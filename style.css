@@ -66,6 +66,11 @@ body {
     position: absolute;
 }
 
+.LTArrow::selection, .RTArrow::selection, .RBArrow::selection, .LBArrow::selection {
+    color: white;
+    background-color: none;
+}
+
 .LTArrow {
     left: 10px;
     top: 40%;
