@@ -71,7 +71,6 @@ function createList(images) {
             activeImage(i, $images)
             idx = i
         })
-
     }
 
     $RBArrow.addEventListener('click', () => {
@@ -91,18 +90,52 @@ function createList(images) {
     })
 
     $RTArrow.addEventListener('click', () => {
+        imageListPosition = 0
+        if (idx > 1 && idx < ($images.length - 3)) {
+            imageListPosition = imageListPosition - img_width * (idx - 1)
+            $imageList.style.left = imageListPosition + 'px'
+        }
+        if (idx < 2 || idx > ($images.length - 2)) {
+            $imageList.style.left = 0 + 'px'
+        }
         idx++
-        if (idx >= images.length) {
+        if (idx >= $images.length) {
             idx = 0
         }
         activeImage(idx, $images)
+
+
     })
 
     $LTArrow.addEventListener('click', () => {
+
         idx--
+        if (idx == $images.length) {
+            imageListPosition = imageListPosition - img_width * ($images.length - 5)
+            $imageList.style.left = imageListPosition + 'px'
+        } else if (idx <= $images.length - 1) {
+            imageListPosition = imageListPosition - img_width * ($images.length - 5)
+            $imageList.style.left = imageListPosition + 'px'
+        }
+        imageListPosition = 0
+        if (idx >= 2 && idx < $images.length - 2) {
+            imageListPosition = imageListPosition - img_width * (idx - 2)
+            $imageList.style.left = imageListPosition + 'px'
+
+        }
+        if (idx == 1) {
+            imageListPosition = imageListPosition - img_width * (idx - 1)
+            $imageList.style.left = imageListPosition + 'px'
+        }
+        if (idx == 0) {
+            imageListPosition = imageListPosition - img_width * idx
+            $imageList.style.left = imageListPosition + 'px'
+        }
         if (idx < 0) {
             idx = $images.length - 1
         }
+        console.log("idx=", idx, "imageListPosition=", imageListPosition)
+
         activeImage(idx, $images)
     })
 }
@@ -116,7 +149,6 @@ function activeImage(index, list) {
     }
     prev = index
 }
-
 
 
 load()
